@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "ostream": "cpp"
+  },
+  "C_Cpp.errorSquiggles": "Disabled",
+  "C_Cpp.codeAnalysis.clangTidy.checks.disabled": ["*"],
+  "C_Cpp.codeAnalysis.clangTidy.enabled": true
+}
