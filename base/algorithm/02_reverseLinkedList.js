@@ -13,6 +13,8 @@ function reverseList(head) {
   }
   return prevNode;
 }
+// 递归版本
+
 // 链表中环的检测
 // 两个有序的链表合并
 // 删除链表倒数第 k 个节点
