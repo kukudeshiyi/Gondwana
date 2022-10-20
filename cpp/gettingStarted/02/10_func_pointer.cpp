@@ -22,6 +22,12 @@ void display_message( const string* (*fn)() = 0 ){
   cout << "msg is" << ' ' << (*pi) << endl;
 }
 
+enum fn_type {
+  hello,
+  hi,
+  not_bad
+};
+
 int main(){
   const string* (*fn_array[]) () = {
     cout_hello,
@@ -31,11 +37,6 @@ int main(){
   for( int ix = 0; ix < 3 ; ++ix ){
       display_message( fn_array[ix] ); 
   }
-  enum fn_type {
-    hello,
-    hi,
-    not_bad
-  }
-  display_message( fn_array[ not_bad ] );
+  display_message( fn_array[ hi ] );
   return 0;
 }
