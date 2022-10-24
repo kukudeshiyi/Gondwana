@@ -18,7 +18,7 @@ class LRULinkedList {
     if (this.currentLinkedListLength < this.linkedListLength) {
       const newNode = {
         prev: this.head,
-        value,·
+        value,
         next: this.head.next,
       };
       this.head.next = newNode;
