@@ -6,7 +6,7 @@ function curry(fn, ...args) {
   const length = fn.length;
   return function () {
     const allArgs = [...args, ...arguments];
-    if (allArgs < length) {
+    if (allArgs.length < length) {
       return curry(fn, ...allArgs);
     } else {
       return fn.apply(this, allArgs);
@@ -24,9 +24,9 @@ console.log("one", testAdd(1)(2)(3));
 function curry1(fn, ...args) {
   return function () {
     if (!arguments.length) {
-      return curry(fn, ...args);
+      return fn.apply(this, args);
     }
-    return fn.apply(this, [...args, ...arguments]);
+    return curry1(fn, ...args, ...arguments);
   };
 }
 

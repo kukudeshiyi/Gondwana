@@ -15,7 +15,15 @@ find( IteratorType first, IteratorType last, elemType &value){
 }
 
 void comp( vector<int> &vec1, vector<int> &vec2 ){
-  
+  if( vec1 == vec2 ){
+    return;
+  }
+  if( vec1.empty() || vec2.empty() ){
+    return;
+  }
+  vector<int> t;
+  t = vec1.size() > vec2.size() ? vec1 : vec2;
+  t.clear();
 }
 
 int main(){
