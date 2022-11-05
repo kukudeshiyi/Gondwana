@@ -4,7 +4,8 @@
     "iostream": "cpp",
     "ios": "cpp",
     "vector": "cpp",
-    "algorithm": "cpp"
+    "algorithm": "cpp",
+    "iterator": "cpp"
   },
   "C_Cpp.errorSquiggles": "Disabled",
   "C_Cpp.codeAnalysis.clangTidy.checks.disabled": ["*"],
