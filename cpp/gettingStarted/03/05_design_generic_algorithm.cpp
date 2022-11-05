@@ -27,6 +27,14 @@ vector<int> filter( const vector<int> &vec, int filterValue, bool (*pred)( int, 
 
 // 上面实现的 filter，传入的是函数指针来自定义，所以我们使用 function object
 // 另外可以使用 function object adapter 可以给 function object 绑定一个参数，这样用户只需要传递另外一个参数就可以了。
+template<typename InputIterator, typename OutputIterator, typename ElemType, typename Comp>
+OutputIterator filter_1( InputIterator first, InputIterator last, OutputIterator at, const ElemType &val, Comp pred){
+  while( (first = find_if( first, last, bind2nd( pred,val ))) != last ){
+    cout << "found value:" << *first << endl;
+    *at++ = *first++;
+  }
+  return at;
+}
 
 
 int main(){
@@ -47,6 +55,8 @@ int main(){
 
 
   // function object adapter
-
+  vector<int> vec_2( size );
+  vector<int>::iterator vec_iter = filter_1( vec.begin(), vec.end(), vec_2.begin(), 7, greater<int>() );
+  cout << "filter value is " << *(--vec_iter) << endl;
   return 0;
 }
