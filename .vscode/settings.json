@@ -5,7 +5,13 @@
     "ios": "cpp",
     "vector": "cpp",
     "algorithm": "cpp",
-    "iterator": "cpp"
+    "iterator": "cpp",
+    "iosfwd": "cpp",
+    "filesystem": "cpp",
+    "__split_buffer": "cpp",
+    "deque": "cpp",
+    "list": "cpp",
+    "string": "cpp"
   },
   "C_Cpp.errorSquiggles": "Disabled",
   "C_Cpp.codeAnalysis.clangTidy.checks.disabled": ["*"],
