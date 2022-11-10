@@ -1,4 +1,4 @@
-using namespace std;
+#include "Stack.hpp"
 
 bool Stack::pop( string &elem ){
   if( empty() ){

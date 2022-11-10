@@ -1,11 +1,11 @@
 #include<iostream>
 #include<string>
-#include "Stack.h"
+#include "Stack.hpp"
 using namespace std;
 
 void fill_stack( Stack &stack ){
-  // const string str( "const string" );
-  // stack.push( str ); 
+  const string str( "kelin" );
+  stack.push( str ); 
   cout << "Read in " << stack.size() << " elements" << endl;
 }
 
