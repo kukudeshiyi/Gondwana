@@ -1,6 +1,6 @@
 #include<iostream>
 #include<string>
-#include "Stack.hpp"
+#include "Stack.cpp"
 using namespace std;
 
 void fill_stack( Stack &stack ){

@@ -1,3 +1,5 @@
+#include "Triangular.hpp"
+
 Triangular::Triangular()
 {
   _length = 1;

@@ -2,7 +2,7 @@ class Triangular{
   public:
     Triangular();
     Triangular( int len );
-    Triangular( int len = 1, int bp = 1 )
+    Triangular( int len, int bp )
     {
       _length = len > 0 ? len : 1;
       _beg_pos = bp > 0 ? len : 1;
@@ -12,4 +12,4 @@ class Triangular{
     int _length;
     int _beg_pos;
     int _next;
-}
+};
