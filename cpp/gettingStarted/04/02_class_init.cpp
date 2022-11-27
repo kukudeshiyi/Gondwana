@@ -1,4 +1,4 @@
-#include "Triangular.cpp"
+#include "Triangular1.cpp"
 
 int main(){
   Triangular tri1;
