@@ -2,6 +2,12 @@
 #include<vector>
 #include "Triangular.hpp"
 
+const int arr[8] = {
+  1,2,3,4,5,6,7,8
+};
+
+std::vector<int> Triangular::_elems( arr, arr+8 );
+
 Triangular::Triangular()
 {
   _length = 1;
@@ -43,7 +49,7 @@ void Triangular::gen_elems_to_value( int value ){
     ++ix;
     _elems.push_back( ix*(ix+1)/2 );
   }
-  if( ix = _max_elems ){
+  if( ix == _max_elems ){
     std::cerr << "err" << std::endl;
   }
 }
@@ -67,12 +73,12 @@ bool Triangular::is_elem( int value ){
   std::vector<int>::iterator end_it = _elems.end();
 
   found_it = find( _elems.begin(), end_it, value );
-  return found_it != elem_it;
+  return found_it != end_it;
 }
 
-void Triangular::display( int length, int beg_pos, ostream &os = std::cout)
+void Triangular::display( int length, int beg_pos, std::ostream &os = std::cout)
 {
-  for( int ix = 0; ix < elems.size(); ++ix ){
+  for( int ix = 0; ix < _elems.size(); ++ix ){
     os << _elems[ix] << "\n";
   }
 }

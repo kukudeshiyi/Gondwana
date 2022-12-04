@@ -22,7 +22,7 @@ class Triangular{
     static bool is_elem( int );
     static void gen_elements( int length );
     static void gen_elems_to_value( int value );
-    static void display( int length, int beg_pos, ostream &os = std::cout);
+    static void display( int length, int beg_pos, std::ostream &os);
   private:
     mutable int _length;
     int _beg_pos;
