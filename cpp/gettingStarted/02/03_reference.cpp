@@ -9,6 +9,6 @@ int main(){
   int jval = 4096;
   rval = jval;
 
-  cout << "ival: " << ival << endl;
+  cout << "ival: " << rval << endl;
   return 0;
 }

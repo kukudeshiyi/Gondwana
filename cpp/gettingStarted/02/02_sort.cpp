@@ -2,7 +2,7 @@
 #include<vector>
 using namespace std;
 
-void display( vector<int> vec ){
+void display( vector<int> &vec ){
   for( int ix = 0; ix < vec.size(); ix++ ){
     cout << vec[ix] << ' ';
   }
