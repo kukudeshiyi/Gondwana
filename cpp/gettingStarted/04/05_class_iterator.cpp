@@ -1,10 +1,14 @@
 
+#include<iostram>
 #include "Triangular.hpp"
 
 int main(){
   Triangular trian( 1, 8 );
-  std::cout << trian.elem( 1 ) << std::endl;
-  
+  Triangular::iterator it = trian.begin();
+  Triangular::iterator end_it = trian.end();
 
-  return 0;
+  while( it != end_it ){
+    std::cout<< *it << " ";
+    ++it;
+  }
 }
