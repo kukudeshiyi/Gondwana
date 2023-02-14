@@ -3,7 +3,7 @@
 #include "Triangular.hpp"
 
 const int arr[8] = {
-  1,2,3,4,5,6,7,8
+  1, 3, 6, 10, 15, 21, 28, 36
 };
 
 std::vector<int> Triangular::_elems( arr, arr+8 );
@@ -61,7 +61,7 @@ void Triangular::gen_elements( int length ){
   if( _elems.size() < length )
   {
     int ix = _elems.size() ? _elems.size() + 1 : 1;
-    for( ; ix < length; ++ix )
+    for( ; ix <= length; ++ix )
       _elems.push_back( ix*( ix+1 )/2);
   }
 }
