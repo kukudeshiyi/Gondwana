@@ -1,5 +1,22 @@
 // 1、大数相加
 
+function add(num1, num2) {
+  let i = num1.lengths - 1,
+    j = num2.length - 1,
+    add = 0;
+  const res = [];
+  while (i >= 0 || j >= 0 || add > 0) {
+    const x = i >= 0 ? num1.charAt(i) - 0 : 0;
+    const y = j >= 0 ? num1.charAt(j) - 0 : 0;
+    const result = x + y + add;
+    res.push(result % 10);
+    add = Math.floor(result / 10);
+    --i;
+    --j;
+  }
+  return res.reverse().join();
+}
+
 // 2、instanceof 用于检测构造函数的原型对象是否出现在实例对象的原型链上
 // 自定义 instanceof 的行为
 // class PrimitiveString {
@@ -31,3 +48,4 @@
 // 1 + a // => 3
 
 // 箭头函数
+// 箭头函数并不会创建函数执行上下文，所以没有 this，不能作为构造函数，没有原型对象

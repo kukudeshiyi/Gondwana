@@ -34,3 +34,15 @@ const myClear = mySetInterVal(
 setTimeout(() => {
   myClear();
 }, 4000);
+
+function mySetInterVal(callback, wait) {
+  let timer;
+  function fn() {
+    callback();
+    timer = setTimeout(fn, wait);
+  }
+  setTimeout(fn, wait);
+  return function () {
+    timer && clearTimeout(timer);
+  };
+}

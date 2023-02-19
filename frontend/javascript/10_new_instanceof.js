@@ -3,8 +3,7 @@
 // 绑定 this
 // 返回对象
 function myNew(fn, ...params) {
-  const obj = Object.create(null);
-  obj.__proto__ = fn.prototype;
+  const obj = Object.create(fn.prototype);
   const result = fn.apply(obj, params);
   return result instanceof Object ? result : obj; // 如果构造函数返回了一个对象，那么就返回这个对象，否则返回构造之后的对象
 }
