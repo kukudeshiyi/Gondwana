@@ -69,7 +69,13 @@
     "type_traits": "cpp",
     "typeinfo": "cpp",
     "unordered_map": "cpp",
-    "variant": "cpp"
+    "variant": "cpp",
+    "__functional_base": "cpp",
+    "bit": "cpp",
+    "functional": "cpp",
+    "utility": "cpp",
+    "numeric": "cpp",
+    "random": "cpp"
   },
   "C_Cpp.errorSquiggles": "Disabled",
   "C_Cpp.codeAnalysis.clangTidy.checks.disabled": ["*"],
