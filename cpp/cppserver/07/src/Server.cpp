@@ -7,25 +7,29 @@
 #include <arpa/inet.h>
 #include <functional.h>
 #include <string.h>
+#include "Acceptor.h"
 
 #define READ_BUFFER 1024
 
 
-Server::Sever(EventLoop *_loop): loop(_loop){
-  Socket *serv_sock = new Socket();
-  InetAddress *serv_addr = new InetAddress("127.0.0.1",8888);
-  serv_sock->bind(addr);
-  serv_sock->listen();
-  serv_sock->setnonblocking();
+Server::Sever(EventLoop *_loop): loop(_loop), acceptor(nullptr){
+  // Socket *serv_sock = new Socket();
+  // InetAddress *serv_addr = new InetAddress("127.0.0.1",8888);
+  // serv_sock->bind(addr);
+  // serv_sock->listen();
+  // serv_sock->setnonblocking();
 
-  Channel *servChannel = new Channel(loop, serv_sock->getFd());
-  std::function<void()> cb = std::bind(&Sever::newConnection, this, serv_sock);
-  servChannel->setCallback(cb);
-  servChannel->enabelReading();
+  // Channel *servChannel = new Channel(loop, serv_sock->getFd());
+  // std::function<void()> cb = std::bind(&Sever::newConnection, this, serv_sock);
+  // servChannel->setCallback(cb);
+  // servChannel->enabelReading();
+  acceptor = new Acceptor(loop);
+  std::function<Socket*> cb = std::bind(&Server::newConnection, this)
+  acceptor->setCallback(cb);
 }
 
 Server::~Sever(){
-  
+  delete acceptor;
 }
 
 void Server::handleReadEvent(int sockfd){
