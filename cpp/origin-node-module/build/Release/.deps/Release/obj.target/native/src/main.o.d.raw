@@ -1,0 +1,8 @@
+Release/obj.target/native/src/main.o: ../src/main.cc \
+  ../node_modules/node-addon-api/napi.h \
+  /Users/liqi.shi/Library/Caches/node-gyp/16.19.0/include/node/node_api.h \
+  /Users/liqi.shi/Library/Caches/node-gyp/16.19.0/include/node/js_native_api.h \
+  /Users/liqi.shi/Library/Caches/node-gyp/16.19.0/include/node/js_native_api_types.h \
+  /Users/liqi.shi/Library/Caches/node-gyp/16.19.0/include/node/node_api_types.h \
+  ../node_modules/node-addon-api/napi-inl.h \
+  ../node_modules/node-addon-api/napi-inl.deprecated.h ../src/MyWorker.h

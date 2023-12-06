@@ -75,7 +75,10 @@
     "functional": "cpp",
     "utility": "cpp",
     "numeric": "cpp",
-    "random": "cpp"
+    "random": "cpp",
+    "future": "cpp",
+    "thread": "cpp",
+    "__functional_03": "cpp"
   },
   "C_Cpp.errorSquiggles": "Disabled",
   "C_Cpp.codeAnalysis.clangTidy.checks.disabled": ["*"],
