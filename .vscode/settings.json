@@ -79,7 +79,8 @@
     "future": "cpp",
     "thread": "cpp",
     "__functional_03": "cpp",
-    "queue": "cpp"
+    "queue": "cpp",
+    "condition_variable": "cpp"
   },
   "C_Cpp.errorSquiggles": "Disabled",
   "C_Cpp.codeAnalysis.clangTidy.checks.disabled": ["*"],
