@@ -10,5 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "puppeteer": "^21.4.1"
+  },
+  "devDependencies": {
+    "promises-aplus-tests": "^2.1.2"
   }
 }
