@@ -4,7 +4,6 @@
 
 // console.log(reverseString("123456"));
 
-
 // function isPalindrome(str) {
 //   const len = str.length;
 //   for (let i = 0; i < len / 2; i++) {
@@ -18,7 +17,6 @@
 // console.log(isPalindrome("12321"));
 // console.log(isPalindrome("12344321"));
 // console.log(isPalindrome("1234231"));
-
 
 // 还用回文串判断
 // 在第一次遇见不一样的时候，删除：看两个指针指向元素的下一个，是否与对面的一样，一样的话删除自己
@@ -410,3 +408,35 @@
 // })();
 
 // console.log(foo); // 10
+
+// setTimeout(function () {
+//   console.log(1);
+// }, 0);
+// new Promise(function (resolve, reject) {
+//   console.log(2);
+//   resolve();
+// }).then(function () {
+//   console.log(3);
+// });
+// process.nextTick(function () {
+//   console.log(4);
+// });
+// console.log(5);
+
+function fn1() {
+  let a = {
+    name: "零一",
+  };
+
+  let b = 3;
+
+  function fn2() {
+    let c = [1, 2, 3];
+  }
+
+  fn2();
+
+  return a;
+}
+
+let res = fn1();
