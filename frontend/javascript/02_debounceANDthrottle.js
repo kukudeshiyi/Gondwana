@@ -54,3 +54,21 @@ function throttleTimestamp(fn, time) {
     }
   };
 }
+
+// @2026
+function debounceNew(fn, delay, immediate) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    if (immediate) {
+      if (!timer) {
+        fn(...args);
+      }
+      timer = setTimeout(() => {
+        timer = null;
+      }, delay);
+    } else {
+      timer = setTimeout(() => fn(...args), delay);
+    }
+  };
+}
