@@ -1,0 +1,34 @@
+# GitLab CI Code Review Job 示例配置
+# 复制到项目的 .gitlab-ci.yml 中使用
+
+code_review:
+  stage: review
+  image: harbor.shopeemobile.com/seller-center/cursor-mcp-runner:latest
+  variables:
+    CURSOR_API_KEY: $CURSOR_API_KEY # 在 GitLab CI/CD Settings 中配置
+  script:
+    - |
+      echo "🔍 Starting AI Code Review..."
+      echo "MR URL: $CI_MERGE_REQUEST_URL"
+
+      cursor-agent -p --force --output-format text \
+        "执行 pro_code_review，审查 MR $CI_MERGE_REQUEST_URL 的代码变更，
+        请提供以下方面的反馈：
+        - 代码质量和可读性
+        - 潜在的 bug 或问题
+        - 安全性考虑
+        - 最佳实践合规性
+        
+        将审查结果写入 review-report.txt"
+
+      echo "✅ Code Review completed"
+      cat review-report.txt || true
+  artifacts:
+    paths:
+      - review-report.txt
+    when: always
+    expire_in: 1 week
+  only:
+    - merge_requests
+  allow_failure: true # 可选：审查失败不阻塞 pipeline
+

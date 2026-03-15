@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "arc-code-review": {
+      "command": "uvx",
+      "args": [
+        "--python",
+        "3.11",
+        "--extra-index-url",
+        "https://pypi.shopee.io/simple/",
+        "--index-strategy",
+        "unsafe-best-match",
+        "--from",
+        "shopee-skynet-arc-code-review@0.9.5",
+        "arc-code-review"
+      ]
+    }
+  }
+}

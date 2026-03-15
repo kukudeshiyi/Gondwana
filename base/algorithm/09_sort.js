@@ -86,6 +86,75 @@
 // 验证各种排序算法
 // 各种排序的时间以及空间复杂度
 
+
+// from 2026-01-14
+// const testArr = [5, 3, 2, 4, 1];
+
+// function bubbleSort(testArr) {
+//   for (let i = 0; i < testArr.length; i++) {
+//     let flag = true;
+//     for (let j = 0; j < testArr.length - 1 - i; j++) {
+//       if (testArr[j] > testArr[j + 1]) {
+//         const temp = testArr[j];
+//         testArr[j] = testArr[j + 1];
+//         testArr[j + 1] = temp;
+//         flag = false;
+//       }
+//     }
+//     if (flag) {
+//       break;
+//     }
+//   }
+// }
+
+// bubbleSort(testArr);
+
+// function test(testArr) {
+//   for (let i = 0; i < testArr.length; i++) {
+//     let minIndex = i;
+//     for (let j = i; j < testArr.length; j++) {
+//       if (testArr[j] < testArr[minIndex]) {
+//         minIndex = j;
+//       }
+//     }
+//     if (minIndex !== i) {
+//       [testArr[minIndex], testArr[i]] = [testArr[i], testArr[minIndex]]
+//     }
+//   }
+//   return testArr;
+// }
+
+function test(testArr) {
+  const len = testArr.length;
+  for (let i = 0; i < len - 1; i++) {
+    for (let j = i + 1; j > 0; j--) {
+      if (testArr[j] < testArr[j - 1]) {
+        [testArr[j], testArr[j - 1]] = [testArr[j - 1], testArr[j]]
+      } else {
+        break;
+      }
+    }
+  }
+  return testArr;
+}
+
+function test1(testArr) {
+  const len = testArr.length;
+  let temp;
+  for (let i = 1; i < len; i++) {
+    let j = i;
+    temp = arr[j];
+    while (j > 0 && testArr[j - 1] > temp) {
+      arr[j] = arr[j - 1];
+      j--;
+    }
+    arr[j] = temp;
+  }
+  return testArr;
+}
+
+console.log(test(testArr))
+
 // const arr = [5, 4, 3, 2, 1];
 
 // function mergeSort(arr) {

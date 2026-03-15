@@ -1,0 +1,35 @@
+STEP 1/10: FROM localhost/cursor-mcp-base:latest
+STEP 2/10: RUN mkdir -p /root/.local/bin &&     curl https://cursor.com/install -fsS | bash
+--> Using cache bd0a525576d6a797e0ea0c7ae9c0d096dcc3022be12792cfe52498fcd1e9fec5
+--> bd0a525576d6
+STEP 3/10: RUN CURSOR_REAL=$(realpath /root/.local/bin/cursor-agent) &&     CURSOR_DIR=$(dirname "$CURSOR_REAL") &&     mv /root/.local/bin/cursor-agent /root/.local/bin/cursor-agent.link &&     echo '#!/bin/bash' > /root/.local/bin/cursor-agent &&     echo "exec $CURSOR_REAL \"\$@\"" >> /root/.local/bin/cursor-agent &&     chmod +x /root/.local/bin/cursor-agent
+--> a16e64ddf819
+STEP 4/10: ENV PATH="/root/.local/bin:${PATH}"
+--> b7be3e244719
+STEP 5/10: RUN mkdir -p /root/.cursor
+--> edd0975d5e97
+STEP 6/10: COPY mcp.json /root/.cursor/mcp.json
+--> be8dbf9ed7b2
+STEP 7/10: RUN uvx --python 3.11     --extra-index-url https://pypi.shopee.io/simple/     --index-strategy unsafe-best-match     --from shopee-skynet-arc-code-review@0.9.5     arc-code-review --help || true
+Downloading cryptography (4.1MiB)
+Downloading pydantic-core (1.8MiB)
+ Downloaded pydantic-core
+ Downloaded cryptography
+Installed 33 packages in 23ms
+2026-01-07 11:03:02 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+Starting Code Review MCP Server with hybrid logging...
+2026-01-07 11:03:02 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+Local log files will be saved to ./log/ directory
+2026-01-07 11:03:02 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+Logs will also be sent to connected MCP clients
+--> dbae9f28a7db
+STEP 8/10: WORKDIR /workspace
+--> 94fafd95fbca
+STEP 9/10: RUN cursor-agent --version
+2026.01.02-80e4d9b
+--> 4d12396ce11f
+STEP 10/10: ENTRYPOINT ["/bin/bash"]
+COMMIT cursor-mcp-runner:latest
+--> 8cd4b41f8847
+Successfully tagged localhost/cursor-mcp-runner:latest
+8cd4b41f8847f6abed341d0afaccce1f507b3055f4e7195ed168415a55d9fd92
