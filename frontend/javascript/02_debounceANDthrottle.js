@@ -11,24 +11,6 @@ function debounce(fn, time) {
   };
 }
 
-// immediate debounce
-function debounceImmediate(fn, time, immediate) {
-  let timer;
-  return function (...args) {
-    clearTimeout(timer);
-    if (immediate) {
-      timer = setTimeout(() => {
-        timer = null;
-      }, time);
-      if (!timer) {
-        fn?.(...args);
-      }
-    } else {
-      timer = setTimeout(() => fn(...args), time);
-    }
-  };
-}
-
 // 使用定时器来实现
 function throttle(fn, time) {
   let timer;
@@ -55,8 +37,15 @@ function throttleTimestamp(fn, time) {
   };
 }
 
-// @2026
-function debounceNew(fn, delay, immediate) {
+function debounce(fn, delay) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), delay);
+  };
+}
+
+function debounceWithImmediate(fn, delay, immediate) {
   let timer;
   return (...args) => {
     clearTimeout(timer);
@@ -69,6 +58,30 @@ function debounceNew(fn, delay, immediate) {
       }, delay);
     } else {
       timer = setTimeout(() => fn(...args), delay);
+    }
+  };
+}
+
+function throttle(fn, delay) {
+  let timer;
+  return (...args) => {
+    if (timer) {
+      return;
+    }
+    timer = setTimeout(() => {
+      fn.apply(this, args);
+      timer = null;
+    }, delay);
+  };
+}
+
+function throttle1(fn, delay) {
+  let last = Date.now();
+  return (...args) => {
+    const now = Date.now();
+    if (now >= last + delay) {
+      fn.apply(this, args);
+      last = now;
     }
   };
 }

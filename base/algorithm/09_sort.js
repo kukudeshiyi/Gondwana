@@ -236,22 +236,108 @@ function selectSort(arr) {
 //   return arr;
 // }
 
-function insertSort(arr) {
+// function insertSort(arr) {
+//   const len = arr.length;
+//   for (let i = 1; i < len; i++) {
+//     let temp = arr[i]; // 当前要插入的元素
+//     let j = i;
+//     // 内层循环找到合适的插入位置
+//     for (; j > 0; j--) {
+//       if (temp < arr[j - 1]) {
+//         arr[j] = arr[j - 1]; // 将较大的元素向后移动
+//       } else {
+//         break; // 如果找到合适的位置，退出内层循环
+//       }
+//     }
+//     arr[j] = temp; // 将 temp 插入到正确的位置
+//   }
+//   return arr;
+// }
+
+// console.log(insertSort(testArr));
+
+// function mergeSort(arr) {
+//   const len = arr.length;
+
+//   if (len <= 1) {
+//     return arr;
+//   }
+
+//   const midIndex = Math.floor(len / 2);
+
+//   const arr1 = mergeSort(arr.slice(0, midIndex));
+//   const arr2 = mergeSort(arr.slice(midIndex));
+
+//   return mergeArr(arr1, arr2);
+// }
+
+// function mergeArr(arr1, arr2) {
+//   let i = 0,
+//     j = 0; // 初始化值
+//   const res = [];
+//   const len1 = arr1.length;
+//   const len2 = arr2.length;
+//   while (i < len1 && j < len2) {
+//     if (arr1[i] < arr2[j]) {
+//       res.push(arr1[i]);
+//       i++;
+//     } else {
+//       res.push(arr2[j]);
+//       j++;
+//     }
+//   }
+
+//   if (i < len1) {
+//     return res.concat(arr1.slice(i));
+//   }
+
+//   if (j < len2) {
+//     return res.concat(arr2.slice(j));
+//   }
+
+//   return res;
+// }
+
+// console.log("merge sort", mergeSort([5, 4, 3, 2, 1]));
+
+function quickSort(arr, left = 0, right = arr.length - 1) {
   const len = arr.length;
-  for (let i = 1; i < len; i++) {
-    let temp = arr[i]; // 当前要插入的元素
-    let j = i;
-    // 内层循环找到合适的插入位置
-    for (; j > 0; j--) {
-      if (temp < arr[j - 1]) {
-        arr[j] = arr[j - 1]; // 将较大的元素向后移动
-      } else {
-        break; // 如果找到合适的位置，退出内层循环
-      }
+  if (len > 1) {
+    const index = p(arr, left, right);
+    if (left < index - 1) {
+      quickSort(arr, left, index - 1);
     }
-    arr[j] = temp; // 将 temp 插入到正确的位置
+    if (index < right) {
+      quickSort(arr, index, right);
+    }
   }
   return arr;
 }
 
-console.log(insertSort(testArr));
+function p(arr, left, right) {
+  const s = arr[Math.floor(left + (right - left) / 2)];
+  let i = left,
+    j = right;
+  while (i <= j) {
+    while (arr[i] < s) {
+      i++;
+    }
+
+    while (arr[j] > s) {
+      j--;
+    }
+
+    if (i <= j) {
+      swap(arr, i, j);
+      i++;
+      j--;
+    }
+  }
+  return i;
+}
+
+function swap(arr, i, j) {
+  [arr[i], arr[j]] = [arr[j], arr[i]];
+}
+
+console.log("quick sort", quickSort([5, 4, 3, 2, 1]));
